@@ -2056,7 +2056,7 @@ footer .bottom_footer .developer_text a {
 /* WHATSAPP BUTTON */
 .whatsapp-float{
     position: fixed;
-    right: 20px;
+    left: 20px;
     bottom: 20px;
     width: 56px;
     height: 56px;
@@ -3292,7 +3292,7 @@ header.fix_style.white_header {
 .signup_form form .form-group .form-control {
     height: 60px;
     padding: 5px 20px;
-    color: var(--body-text-purple);
+    color: black;
     border: 2px solid #E1DBF4;
     border-radius: 12px;
     font-weight: 500;

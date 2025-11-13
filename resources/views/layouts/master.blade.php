@@ -26,11 +26,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
   integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+{{-- <style>
+.grecaptcha-badge {
+    left: 10px !important;
+    right: auto !important;
+    bottom: 10px !important;
+    transform: scale(0.7);
+    opacity: 0.6;
+    z-index: 1000;
+}
+</style> --}}
 
 </head>
 
 <body>
-
+  <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
   <!-- Page-wrapper-Start -->
   <div class="page_wrapper">
 
@@ -244,7 +254,7 @@
                     <p>© Copyrights 2025. All rights reserved.</p>
                 </div>
                 <div class="col-md-6">
-                    <p class="developer_text">Design & developed by Rizky Febriyanto</p>
+                    <p class="developer_text">Design & developed by RF</p>
                 </div>
             </div>
             <!-- row end -->
@@ -293,6 +303,20 @@
 
 
   </script>
+
+  <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        grecaptcha.ready(function() {
+            grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'front'})
+            .then(function(token) {
+                document.getElementById('g-recaptcha-response').value = token;
+            });
+        });
+    });
+    </script>
+
+
   <!-- Jquery-js-Link -->
   <script src="{{asset('landing/js/jquery.js')}}"></script>
   <!-- owl-js-Link -->

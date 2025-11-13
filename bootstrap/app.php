@@ -15,6 +15,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Illuminate\Foundation\Configuration\Middleware $middleware) {
         $middleware->alias([
             'backoffice' => \App\Http\Middleware\BackofficeMiddleware::class,
+            'recaptcha.front' => \App\Http\Middleware\RecaptchaFront::class, // <-- ini penting
+
         ]);
     })
 
