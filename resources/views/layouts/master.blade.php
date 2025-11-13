@@ -156,7 +156,7 @@
               <div class="contact_item">
                 <img class="moving_position_animatin" src="{{asset('landing/images/email.png')}}" alt="image" >
                 <h3>Email Address</h3>
-                <span>itechtelemedia@gmail.com</span>
+                <span>admin@itechtelemedia.co.id</span>
               </div>
             </div>
 

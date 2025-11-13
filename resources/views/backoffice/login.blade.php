@@ -47,21 +47,38 @@
           <!-- Comment Form Section -->
           <div class="signup_form">
             <div class="section_title">
-              <!-- <h2> Login Your Account </h2> -->
                <p style="font-size: 25px;">
                   Login Your Account
                </p>
             </div>
-            <form action="#">
+            {{-- <form action="{{ route('login.post') }}" method="POST">
+              @csrf
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="username" name="username" class="form-control" placeholder="Username">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" class="form-control" placeholder="Password">
               </div>
               <div class="form-group">
                 <button class="btn puprple_btn" type="submit">SIGN IN</button>
               </div>
+            </form> --}}
+
+            <form action="{{ route('login.post') }}" method="POST" id="loginForm">
+                @csrf
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                </div>
+
+                <!-- Hidden input buat token reCAPTCHA -->
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+
+                <div class="form-group">
+                    <button class="btn puprple_btn" type="submit">SIGN IN</button>
+                </div>
             </form>
           </div>
          </section>
@@ -73,6 +90,30 @@
 
   </div>
   <!-- Page-wrapper-End -->
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('loginForm');
+        const tokenInput = document.getElementById('g-recaptcha-response');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // tahan submit sementara
+            grecaptcha.ready(function () {
+                grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', { action: 'login' })
+                .then(function (token) {
+                    tokenInput.value = token;
+                    form.submit(); // baru submit setelah token terisi
+                }).catch(function(err){
+                    console.error('grecaptcha error', err);
+                    // fallback: submit juga (atau tampilkan pesan error)
+                    form.submit();
+                });
+            });
+        });
+    });
+    </script>
+
+
 
   <!-- Jquery-js-Link -->
   <script src="{{asset('landing/js/jquery.js')}}"></script>
