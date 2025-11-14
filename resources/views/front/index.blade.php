@@ -460,39 +460,42 @@
       <!-- container start -->
       <div class="container">
         <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
-          <!-- h2 -->
-          <h2>Testimoni Pelanggan <br>
+            <h2>Testimoni Pelanggan <br>
             <span>i-tech</span></h2>
-          <!-- p -->
-          <!-- <p>Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe
-            standard dummy.</p> -->
         </div>
         <div class="testimonial_block" data-aos="fade-in" data-aos-duration="1500">
           <div id="testimonial_slider" class="owl-carousel owl-theme">
           	<!-- user 1 -->
-            <div class="item">
-              <div class="testimonial_slide_box">
-                <div class="rating">
-                  <span><i class="icofont-star"></i></span>
-                  <span><i class="icofont-star"></i></span>
-                  <span><i class="icofont-star"></i></span>
-                  <span><i class="icofont-star"></i></span>
-                  <span><i class="icofont-star"></i></span>
+            @foreach ($testimoni as $item)
+                <div class="item">
+                    <div class="testimonial_slide_box">
+                        <div class="rating">
+                        {{-- <span><i class="icofont-star"></i></span>
+                        <span><i class="icofont-star"></i></span>
+                        <span><i class="icofont-star"></i></span>
+                        <span><i class="icofont-star"></i></span>
+                        <span><i class="icofont-star"></i></span> --}}
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $item->rating)
+                                <span><i class="icofont-star"></i></span>
+                            @else
+                                <span><i class="icofont-star"></i></span>
+                            @endif
+                        @endfor
+                        </div>
+                        <p class="review">
+                        “ {{ $item->caption }} ”
+                        </p>
+                        <div class="testimonial_img">
+                        <img src="{{asset('landing/images/review_11.png')}}" alt="image" width="40%">
+                        </div>
+                        <h3>{{ $item->namalengkap }}</h3>
+                        <span class="designation">{{ $item->pekerjaan }}</span>
+                    </div>
                 </div>
-                <p class="review">
-                  “ Lorem Ipsum is simply dummy text of the printing and typese tting us orem Ipsum has been lorem
-                  beenthe standar dummy. ”
-                </p>
-                <div class="testimonial_img">
-                  <img src="{{asset('landing/images/testimonial_user1.png')}}" alt="image" >
-                </div>
-                <h3>Shayna John</h3>
-                <span class="designation">Careative inc</span>
-              </div>
-            </div>
+            @endforeach
         </div>
       </div>
-      <!-- container end -->
     </section>
     <!-- Testimonial-Section end -->
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Setting;
 use App\Models\Artikel;
+use App\Models\Testimoni;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,8 +12,9 @@ class HomeController extends Controller
 
         $data = Setting::all();
         $berita = Artikel::orderBy('created_at', 'desc')->get();
+        $testimoni = Testimoni::orderBy('created_at', 'desc')->get();
 
-        return view('front.index',compact('data','berita'));
+        return view('front.index',compact('data','berita','testimoni'));
     }
 
     public function about(){
