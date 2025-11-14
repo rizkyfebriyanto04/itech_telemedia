@@ -2,30 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use App\Models\Setting;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Setting;
 
-class DatabaseSeeder extends Seeder
+class SettingSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
-     * Seed the application's database.
+     * Jalankan database seeder.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Administrator',
-            'username' => 'administrator',
-            'email' => 'admin@itechtelemedia.co.id',
-            'password' => Hash::make("superadmin")
-        ]);
-
         $data = [
             [
                 'nama_field' => 'Url Web Report',
@@ -78,6 +64,5 @@ class DatabaseSeeder extends Seeder
         ];
 
         Setting::insert($data);
-
     }
 }

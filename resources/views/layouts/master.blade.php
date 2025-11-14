@@ -49,6 +49,39 @@
       <div id="loader"></div>
     </div> -->
 
+    @php
+
+        $dataWebReport = '';
+        $dataLinkApk = '';
+        $dataPopUpWa = '';
+        $dataCsWa = '';
+        $dataCsTelegram = '';
+        $dataCenterWa1 = '';
+        $dataCenterWa2 = '';
+        $dataCenterWa3 = '';
+
+        foreach ($data as $item) {
+            if ($item->nama_field == 'Url Web Report') {
+                $dataWebReport = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Link Apk') {
+                $dataLinkApk = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Pop Up Wa') {
+                $dataPopUpWa = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Cs Wa') {
+                $dataCsWa = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Cs Telegram') {
+                $dataCsTelegram = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Center Wa 1') {
+                $dataCenterWa1 = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Center Wa 2') {
+                $dataCenterWa2 = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Center Wa 3') {
+                $dataCenterWa3 = $item->nilai_field;
+            }
+        }
+
+    @endphp
+
     <!-- Header Start -->
         @if (Request::is('/'))
         <header>
@@ -84,10 +117,11 @@
                         <a class="nav-link" href="{{ route('saldo')}}">Isi Saldo</a>
                     </li>
                     <li class="nav-item has_dropdown">
-                        <a class="nav-link" href="https://webreport.itechtelemedia.co.id" target="_blank">Web Report</a>
+                        {{-- <a class="nav-link" href="{{ $dataWebReport }}" target="_blank">Web Report</a> --}}
+                        <a class="nav-link" href="{{ $dataWebReport }}" target="_blank">Web Report</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link dark_btn" href="https://drive.google.com/file/d/1M3g2rGPk4qnev1waEpmt-579ru82fZLG/view?usp=drive_link" target="_blank">Download I-tech</a>
+                        <a class="nav-link dark_btn" href="{{ $dataLinkApk }}" target="_blank">Download I-tech</a>
                     </li>
                     </ul>
                 </div>
@@ -132,10 +166,10 @@
                         <a class="nav-link" href="{{ route('saldo')}}">Isi Saldo</a>
                     </li>
                     <li class="nav-item has_dropdown">
-                        <a class="nav-link" href="https://webreport.itechtelemedia.co.id" target="_blank">Web Report</a>
+                        <a class="nav-link" href="{{ $dataWebReport }}" target="_blank">Web Report</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link dark_btn" href="https://drive.google.com/file/d/1M3g2rGPk4qnev1waEpmt-579ru82fZLG/view?usp=drive_link" target="_blank">Download I-tech</a>
+                        <a class="nav-link dark_btn" href="{{ $dataLinkApk }}" target="_blank">Download I-tech</a>
                     </li>
                     </ul>
                 </div>
@@ -213,11 +247,11 @@
                       <div class="links">
                         <h3>Links</h3>
                           <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Tentang</a></li>
-                            <li><a href="#">Cara Daftar</a></li>
-                            <li><a href="#">Isi Saldo</a></li>
-                            <li><a href="#">Web Report</a></li>
+                            <li><a href="{{ route('home')}}">Home</a></li>
+                            <li><a href="{{ route('about')}}">Tentang</a></li>
+                            <li><a href="{{ route('home') }}#how_it_work">Cara Daftar</a></li>
+                            <li><a href="{{ route('saldo')}}">Isi Saldo</a></li>
+                            <li><a href="{{ $dataWebReport }}" target="_blank">Web Report</a></li>
                           </ul>
                       </div>
                   </div>
@@ -227,13 +261,11 @@
                     <div class="links">
                       <h3>Costumer Service</h3>
                         <ul>
-
-
-                          <li style="color: #fff;"><a href="https://wa.me/6281802144757" target="_blank" style="color: #fff;"><i class="fab fa-whatsapp"></i> CS Whatsapp</a></li>
-                          <li style="color: #fff;"><a href="https://t.me/Cs_itech01" target="_blank"><i class="fab fa-telegram"></i> CS Telegram</a></li>
-                          <li style="color: #fff;"><a href="https://wa.me/6285720165555" target="_blank" style="color: #fff;"><i class="fab fa-whatsapp"></i> Center Whatsapp 1</a></li>
-                          <li style="color: #fff;"><a href="https://wa.me/6287825981888" target="_blank" style="color: #fff;"><i class="fab fa-whatsapp"></i> Center Whatsapp 2</a></li>
-                          <li style="color: #fff;"><a href="https://wa.me/6281220826161" target="_blank" style="color: #fff;"><i class="fab fa-whatsapp"></i> Center Whatsapp 3</a></li>
+                          <li style="color: #fff;"><a href="{{ $dataCsWa }}" target="_blank" style="color: #fff;"><i class="fab fa-whatsapp"></i> CS Whatsapp</a></li>
+                          <li style="color: #fff;"><a href="{{ $dataCsTelegram }}" target="_blank"><i class="fab fa-telegram"></i> CS Telegram</a></li>
+                          <li style="color: #fff;"><a href="{{ $dataCenterWa1 }}" target="_blank" style="color: #fff;"><i class="fab fa-whatsapp"></i> Center Whatsapp 1</a></li>
+                          <li style="color: #fff;"><a href="{{ $dataCenterWa2 }}" target="_blank" style="color: #fff;"><i class="fab fa-whatsapp"></i> Center Whatsapp 2</a></li>
+                          <li style="color: #fff;"><a href="{{ $dataCenterWa3 }}" target="_blank" style="color: #fff;"><i class="fab fa-whatsapp"></i> Center Whatsapp 3</a></li>
                         </ul>
                     </div>
                   </div>
@@ -270,7 +302,7 @@
     <!-- Footer-Section end -->
 
     <!-- WhatsApp floating button -->
-    <a href="https://wa.me/6281802144757?text=Halo%20Saya%20Mau%20Tanya"
+    <a href="{{ $dataPopUpWa }}"
         class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
         <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true" focusable="false">
         <path fill="#fff" d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.2 7.1L4 29l6.2-2.1c1.9 1 4 1.6 6 1.6 6.6 0 12-5.4 12-12S22.6 3 16 3z"/>
@@ -281,6 +313,7 @@
   <!-- Page-wrapper-End -->
 
   <!-- Icon -->
+  @stack('scripts')
   <script>
     window.addEventListener('scroll', function() {
       if (window.innerWidth <= 768) {
@@ -290,16 +323,31 @@
         const windowHeight = window.innerHeight;
 
         if (footerTop < windowHeight - 100) {
-          waButton.style.bottom = '90px'; // naik kalau footer kelihatan
+          waButton.style.bottom = '90px';
         } else {
-          waButton.style.bottom = '20px'; // posisi normal
+          waButton.style.bottom = '20px';
         }
       } else {
-        // reset posisi untuk desktop
         const waButton = document.querySelector('.whatsapp-float');
         waButton.style.bottom = '20px';
       }
     });
+
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     fetch("{{ route('get-url') }}")
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             if (data.webReport) document.getElementById('linkWebReport').href = data.webReport;
+    //             if (data.linkApk) document.getElementById('linkApk').href = data.linkApk;
+    //             if (data.popUpWa) document.getElementById('linkPopUpWa').href = data.popUpWa;
+    //             if (data.csWa) document.getElementById('linkCsWa').href = data.csWa;
+    //             if (data.csTelegram) document.getElementById('linkCsTelegram').href = data.csTelegram;
+    //             if (data.centerWa1) document.getElementById('linkCenterWa1').href = data.centerWa1;
+    //             if (data.centerWa2) document.getElementById('linkCenterWa2').href = data.centerWa2;
+    //             if (data.centerWa3) document.getElementById('linkCenterWa3').href = data.centerWa3;
+    //         })
+    //         .catch(error => console.error('Error fetching URL data:', error));
+    // });
 
 
   </script>

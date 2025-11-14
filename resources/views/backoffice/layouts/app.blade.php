@@ -28,6 +28,12 @@
 
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.x/css/materialdesignicons.min.css" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS (kalau belum ada) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 
@@ -78,14 +84,7 @@
                                         <span class="align-middle">Sign out</span>
                                     </button>
                                 </form>
-
                             </div>
-                        </div>
-
-                        <div class="dropdown d-inline-block">
-                            <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
-                                <i class="uil-cog"></i>
-                            </button>
                         </div>
 
                     </div>
@@ -141,6 +140,27 @@
                                 </a>
                             </li>
 
+                            <li>
+                                <a href="{{ route('artikel')}}">
+                                    <i class="uil-home-alt"></i>
+                                    <span>Berita</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('setting')}}">
+                                    <i class="uil-home-alt"></i>
+                                    <span>Carousel</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('setting')}}">
+                                    <i class="uil-home-alt"></i>
+                                    <span>Testimoni</span>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                     <!-- Sidebar -->
@@ -187,7 +207,7 @@
 
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
-
+        @stack('scripts')
         <!-- Required datatable js -->
         <script src="{{asset('backoffice/assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
         <script src="{{asset('backoffice/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>

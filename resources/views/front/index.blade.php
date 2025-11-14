@@ -3,6 +3,39 @@
 @section('title', 'itech telemedia')
 
 @section('content')
+
+    @php
+
+        $dataWebReport = '';
+        $dataLinkApk = '';
+        $dataPopUpWa = '';
+        $dataCsWa = '';
+        $dataCsTelegram = '';
+        $dataCenterWa1 = '';
+        $dataCenterWa2 = '';
+        $dataCenterWa3 = '';
+
+        foreach ($data as $item) {
+            if ($item->nama_field == 'Url Web Report') {
+                $dataWebReport = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Link Apk') {
+                $dataLinkApk = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Pop Up Wa') {
+                $dataPopUpWa = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Cs Wa') {
+                $dataCsWa = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Cs Telegram') {
+                $dataCsTelegram = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Center Wa 1') {
+                $dataCenterWa1 = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Center Wa 2') {
+                $dataCenterWa2 = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Center Wa 3') {
+                $dataCenterWa3 = $item->nilai_field;
+            }
+        }
+
+    @endphp
     <!-- Banner-Section-Start -->
     <section class="banner_section">
       <!-- container start -->
@@ -20,7 +53,7 @@
             <!-- app buttons -->
             <ul class="app_btn">
               <li>
-                <a href="#">
+                <a href="{{ $dataLinkApk }}">
                   <img class="blue_img" src="{{asset('landing/images/googleplay_blue.png')}}" alt="image" >
                   <img class="white_img" src="{{asset('landing/images/googleplay_white.png')}}" alt="image" >
                 </a>
@@ -290,7 +323,7 @@
                 </li>
               </ul>
               <!-- UL end -->
-              <a href="" class="btn puprple_btn" data-aos="fade-in" data-aos-duration="1500">MULAI  COBA GRATIS</a>
+              <a href="{{ $dataLinkApk }}" class="btn puprple_btn" data-aos="fade-in" data-aos-duration="1500">MULAI  COBA GRATIS</a>
             </div>
           </div>
         </div>
@@ -405,7 +438,7 @@
                 <div class="step_text" data-aos="fade-right" data-aos-duration="1500">
                   <h4>Mulai Bertransaksi</h4>
                   <p>Isi saldo, beli pulsa, paket data, token listrik, dan banyak layanan lainnya — cepat & mudah.</p>
-                  <span>Jika Ada Pertanyaan Silahkan Hubungi Costumer Service Kami <a href="#">CS I-tech</a></span>
+                  <span>Jika Ada Pertanyaan Silahkan Hubungi Costumer Service Kami <a href="{{ $dataPopUpWa }}" style="color: black">CS I-tech</a></span>
                 </div>
                 <div class="step_number">
                   <h3 style="color: white;">03</h3>
@@ -546,23 +579,25 @@
           <!-- row start -->
           <div class="row">
           	<!-- story -->
-            <div class="col-md-4">
-                <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
-                    <div class="story_img">
-                      <img src="{{asset('landing/images/story01.png')}}" alt="image" >
-                      <span>45 min ago</span>
-                    </div>
-                    <div class="story_text">
-                        <h3>Cool features added!</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                          industry lorem Ipsum has.</p>
-                        <a href="blog-single.html">READ MORE</a>
+            @foreach ($berita as $item)
+                <div class="col-md-4">
+                    <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="story_img">
+                        <img src="{{ asset('berita/' . $item->image) }}" alt="image" width="50%">
+                        </div>
+                        <div class="story_text">
+                            <h3>{{ $item->title }}</h3>
+                            <p style="color: black">
+                                {!! Str::words(strip_tags($item->content), 10, '...') !!}
+                            </p>
+                            <a href="{{ route('get-detail-blog', $item->slug) }}">READ MORE</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
 
             <!-- story -->
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
                 <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
                     <div class="story_img">
                       <img src="{{asset('landing/images/story02.png')}}" alt="image" >
@@ -571,7 +606,7 @@
                     <div class="story_text">
                           <h3>Top rated app! Yupp.</h3>
                         <p>Simply dummy text of the printing and typesetting industry lorem Ipsum has Lorem Ipsum is.</p>
-                        <a href="blog-single.html">READ MORE</a>
+                        <a href="#">READ MORE</a>
                     </div>
                 </div>
             </div>
@@ -586,10 +621,10 @@
                     <div class="story_text">
                           <h3>Creative ideas on app.</h3>
                         <p>Printing and typesetting industry lorem Ipsum has Lorem simply dummy text of the.</p>
-                        <a href="blog-single.html">READ MORE</a>
+                        <a href="#">READ MORE</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
           </div>
           <!-- row end -->
       </div>

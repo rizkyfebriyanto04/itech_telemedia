@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Tentang Kami')
+@section('title', 'Berita')
 
 @section('content')
 
@@ -17,7 +17,7 @@
           <ul>
             <li><a href="{{ route('home')}}">Home</a></li>
             <li><span>»</span></li>
-            <li><a href="">News & Updates</a></li>
+            <li><a href="">Berita Itech</a></li>
           </ul>
         </div>
       </div>
@@ -27,70 +27,20 @@
     <section class="blog_detail_section">
       <div class="container">
         <div class="blog_inner_pannel">
-            <div class="review">
+            {{-- <div class="review">
               <span>Review</span>
               <span>45 min ago</span>
-            </div>
+            </div> --}}
             <div class="section_title">
-              <h2>Top rated app of the year!</h2>
+              <h2>{{ $artikel->title }}</h2>
             </div>
-            <div class="main_img">
-              <img src="images/blog_detail_main.png" alt="image">
+            <div class="main_img" style="text-align: center">
+              <img src="{{ asset('berita/' . $artikel->image) }}" alt="image">
             </div>
-            <div class="info">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic Lorem Ipsum is simply dummy text of the printing and typesettingindustry lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived.</p>
-              <p>Printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unnown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic Lorem Ipsum is simply dummy text of the printing and typesettingindustry lorem Ipsum has been the industrys centuries, but also the leap into electronic.</p>
-              <h3>Why we are best</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic.</p>
-              <!-- <ul>
-                <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Lorem Ipsum is simply dummy text of the printing and typesetting in </p></li>
-                <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Dustry lorem Ipsum has been the industrys standard dummy text ev er since the when</p></li>
-                <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Unknown printer took a galley of type and scrambled it to make.</p></li>
-                <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Type specimen book. It has survived not only five centuries, but also the leap into electronic.</p></li>
-                <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Lorem Ipsum is simply dummy text of the printing.</p></li>
-                    <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Dustry lorem Ipsum has been the industrys standard dummy text ev er since.</p></li>
-                    <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Unknown printer took a galley of type and scrambled it to make.</p></li>
-                    <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Type specimen book. It has survived not only.</p></li>
-                </ul> -->
-            </div>
-            <!-- <div class="two_img">
-              <div class="row">
-                <div class="col-md-6">
-                  <img src="images/blog_sub_01.png" alt="image">
-                </div>
-                <div class="col-md-6">
-                  <img src="images/blog_sub_02.png" alt="image">
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="info">
-              <h3>Why we are best</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic Lorem Ipsum is simply dummy text of the printing and typesettingindustry lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived.</p>
-            </div> -->
-            <div class="quote_block">
-              <span class="q_icon"><img src="images/quote_icon.png" alt="image"></span>
-              <h2>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy.</h2>
-              <p><span class="name">Mr. John Doe,</span> Apper Inc</p>
-            </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic industry.</p>
-            <!-- <div class="blog_authore">
-                <div class="authore_info">
-                    <div class="avtar">
-                      <img src="images/blog_d02.png" alt="image">
-                    </div>
-                    <div class="text">
-                      <h3>By: John Dow</h3>
-                      <span>July 25, 2022</span>
-                    </div>
-                </div>
-            </div> -->
-            <div class="blog_tags">
-                <ul>
-                  <li class="tags"><p>Tags:</p></li>
-                  <li><span>app,</span></li>
-                  <li><span>rating,</span></li>
-                  <li><span>development</span></li>
-                </ul>
+            <div class="info" style="color: black">
+                <p style="color: black">
+                    {!! $artikel->content !!}
+                </p>
             </div>
         </div>
       </div>
@@ -100,29 +50,27 @@
     <section class="row_am latest_story" id="blog">
       <!-- container start -->
        <div class="container">
-           <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-               <h2>Read latest <span>story</span></h2>
-               <p>Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe standard dummy.</p>
-           </div>
            <!-- row start -->
            <div class="row">
              <!-- story -->
-             <div class="col-md-4">
-                 <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
-                     <div class="story_img">
-                       <img src="images/story01.png" alt="image" >
-                       <span>45 min ago</span>
-                     </div>
-                     <div class="story_text">
-                         <h3>Cool features added!</h3>
-                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                           industry lorem Ipsum has.</p>
-                         <a href="#">READ MORE</a>
-                     </div>
-                 </div>
-             </div>
+             @foreach ($current_artikel as $item)
+                <div class="col-md-4">
+                    <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="story_img">
+                        <img src="{{ asset('berita/' . $item->image) }}" alt="image" width="50%">
+                        </div>
+                        <div class="story_text" >
+                            <h3>{{ $item->title }}</h3>
+                            <p style="color: black">
+                                {!! Str::words(strip_tags($item->content), 10, '...') !!}
+                            </p>
+                            <a href="{{ route('get-detail-blog', $item->slug) }}">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
 
-             <!-- story -->
+             {{-- <!-- story -->
              <div class="col-md-4">
                  <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
                      <div class="story_img">
@@ -150,7 +98,7 @@
                          <a href="#">READ MORE</a>
                      </div>
                  </div>
-             </div>
+             </div> --}}
            </div>
            <!-- row end -->
        </div>

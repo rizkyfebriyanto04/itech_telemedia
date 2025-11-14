@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
+            $table->string('image');
             $table->longText('content');
+            $table->enum('status',['PUBLISH','DRAFT']);
             $table->integer('user_id')->nullable();
             $table->integer('update_by')->nullable();
             $table->integer('delete_by')->nullable();

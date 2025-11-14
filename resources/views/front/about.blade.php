@@ -23,6 +23,38 @@
       </div>
     </div>
 
+    @php
+
+        $dataWebReport = '';
+        $dataLinkApk = '';
+        $dataPopUpWa = '';
+        $dataCsWa = '';
+        $dataCsTelegram = '';
+        $dataCenterWa1 = '';
+        $dataCenterWa2 = '';
+        $dataCenterWa3 = '';
+
+        foreach ($data as $item) {
+            if ($item->nama_field == 'Url Web Report') {
+                $dataWebReport = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Link Apk') {
+                $dataLinkApk = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Pop Up Wa') {
+                $dataPopUpWa = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Cs Wa') {
+                $dataCsWa = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Cs Telegram') {
+                $dataCsTelegram = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Center Wa 1') {
+                $dataCenterWa1 = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Center Wa 2') {
+                $dataCenterWa2 = $item->nilai_field;
+            } else if ($item->nama_field == 'Url Center Wa 3') {
+                $dataCenterWa3 = $item->nilai_field;
+            }
+        }
+
+    @endphp
 
     <!-- App-Solution-Section-Start -->
     <section class="row_am app_solution_section">
@@ -152,7 +184,7 @@
                   <h2>Ingin tahu lebih lanjut tentang i-tech ?</h2>
                   <p>Hubungi tim Customer Service kami untuk mendapatkan <br>informasi lengkap mengenai layanan dan solusi distribusi pulsa terbaik dari i-Tech.</p>
               </div>
-              <a href="https://wa.me/6281802144757?text=Halo%20Saya%20Mau%20Tanya" target="_blank" class="btn white_btn">Hubungi Kami Sekarang</a>
+              <a href="{{ $dataPopUpWa }}" target="_blank" class="btn white_btn">Hubungi Kami Sekarang</a>
           </div>
       </div>
     </section>

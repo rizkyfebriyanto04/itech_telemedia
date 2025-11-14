@@ -11,6 +11,8 @@ Route::middleware('recaptcha.front')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/saldo', [HomeController::class, 'saldo'])->name('saldo');
+    Route::get('/get-url', [HomeController::class, 'getURL'])->name('get-url');
+    Route::get('/blog/{slug}', [HomeController::class, 'GetDetailArtikel'])->name('get-detail-blog');
 });
 
 
@@ -22,6 +24,15 @@ Route::middleware('backoffice')->group(function () {
 
     // Setting
     Route::get('/setting', [SettingController::class, 'index'])->name('setting');
+    Route::put('/setting/update', [SettingController::class, 'update'])->name('setting.update');
+
+    // Berita
+    Route::get('/artikel', [SettingController::class, 'artikel'])->name('artikel');
+    Route::get('/add-artikel', [SettingController::class, 'tambah_artikel'])->name('add.artikel');
+    Route::post('/store', [SettingController::class, 'store_artikel'])->name('artikel.store');
+    Route::get('/artikel/{id}/edit', [SettingController::class, 'artikel_edit'])->name('artikel.edit');
+    Route::put('/artikel/{id}', [SettingController::class, 'artikel_update'])->name('artikel.update');
+    Route::delete('/artikel/{id}', [SettingController::class, 'artikel_delete'])->name('artikel.delete');
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
