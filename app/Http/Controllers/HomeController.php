@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index(){
 
         $data = Setting::all();
-        $berita = Artikel::all();
+        $berita = Artikel::orderBy('created_at', 'desc')->get();
 
         return view('front.index',compact('data','berita'));
     }
@@ -73,8 +73,7 @@ class HomeController extends Controller
 
         $artikel = Artikel::where('slug', $slug)->firstOrFail();
 
-        $current_artikel = Artikel::orderBy('id', 'asc')->get();
-
+        $current_artikel = Artikel::orderBy('created_at', 'desc')->get();
 
         return view('front.blog_details', compact('artikel','data','current_artikel'));
     }

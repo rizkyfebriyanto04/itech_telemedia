@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Artikel;
 use App\Models\Setting;
+use App\Models\Testimoni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -143,8 +144,6 @@ class SettingController extends Controller
         return redirect()->route('artikel')->with('success', 'Artikel berhasil diperbarui.');
     }
 
-
-
     public function artikel_delete($id)
     {
         $data = Artikel::findOrFail($id);
@@ -156,6 +155,47 @@ class SettingController extends Controller
         $data->delete();
 
         return back()->with('success', 'Artikel berhasil dihapus');
+    }
+
+    public function testimoni()
+    {
+        $data = Testimoni::orderBy('id', 'asc')->get();
+        return
+            view(
+                'backoffice.testimoni',
+                compact('data')
+            );
+    }
+
+    public function tambah_testimoni()
+    {
+
+        $data = Testimoni::orderBy('id', 'asc')->get();
+        return
+            view(
+                'backoffice.tambah_testimoni',
+                compact('data')
+            );
+    }
+
+    public function store_testimoni(Request $request)
+    {
+        $request->validate([
+            'namalengkap' => 'required',
+            'pekerjaan' => 'required',
+            'caption' => 'required',
+            'rating' => 'required|numeric|min:1|max:5',
+
+        ]);
+
+        Testimoni::create([
+            'namalengkap' => $request->namalengkap,
+            'pekerjaan'   => $request->pekerjaan,
+            'caption'     => $request->caption,
+            'rating'      => $request->rating,
+        ]);
+
+        return redirect()->back()->with('success', 'Testimoni berhasil ditambahkan.');
     }
 
 }

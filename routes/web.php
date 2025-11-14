@@ -34,6 +34,12 @@ Route::middleware('backoffice')->group(function () {
     Route::put('/artikel/{id}', [SettingController::class, 'artikel_update'])->name('artikel.update');
     Route::delete('/artikel/{id}', [SettingController::class, 'artikel_delete'])->name('artikel.delete');
 
+    Route::get('/testimoni', [SettingController::class, 'testimoni'])->name('testimoni');
+    Route::get('/add-testimoni', [SettingController::class, 'tambah_testimoni'])->name('add.testimoni');
+    Route::post('/store', [SettingController::class, 'store_testimoni'])->name('testimoni.store');
+    Route::get('/testimoni/{id}/edit', [SettingController::class, 'testimoni_edit'])->name('testimoni.edit');
+    Route::put('/testimoni/{id}', [SettingController::class, 'testimoni_update'])->name('testimoni.update');
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 });

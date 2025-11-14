@@ -28,11 +28,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.x/css/materialdesignicons.min.css" rel="stylesheet">
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Bootstrap JS (kalau belum ada) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    @stack('styles')
 
 </head>
 
@@ -81,7 +77,7 @@
                                     @csrf
                                     <button type="submit" class="dropdown-item" style="background:none; border:none; width:100%; text-align:left;">
                                         <i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i>
-                                        <span class="align-middle">Sign out</span>
+                                        <span class="align-middle">Log out</span>
                                     </button>
                                 </form>
                             </div>
@@ -123,7 +119,7 @@
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
                         <!-- Left Menu Start -->
-                        <ul class="metismenu list-unstyled" id="side-menu">
+                        <ul class="metismenu" id="side-menu">
                             <li class="menu-title">Menu</li>
 
                             <li>
@@ -147,15 +143,15 @@
                                 </a>
                             </li>
 
-                            <li>
+                            {{-- <li>
                                 <a href="{{ route('setting')}}">
                                     <i class="uil-home-alt"></i>
                                     <span>Carousel</span>
                                 </a>
-                            </li>
+                            </li> --}}
 
                             <li>
-                                <a href="{{ route('setting')}}">
+                                <a href="{{ route('testimoni')}}">
                                     <i class="uil-home-alt"></i>
                                     <span>Testimoni</span>
                                 </a>
@@ -207,6 +203,14 @@
 
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
+
+
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Bootstrap JS (kalau belum ada) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
         @stack('scripts')
         <!-- Required datatable js -->
         <script src="{{asset('backoffice/assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
@@ -229,8 +233,6 @@
         <script src="{{asset('backoffice/assets/js/pages/datatables.init.js')}}"></script>
 
         <!-- JAVASCRIPT -->
-        <script src="{{asset('backoffice/assets/libs/jquery/jquery.min.js')}}"></script>
-        <script src="{{asset('backoffice/assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('backoffice/assets/libs/metismenu/metisMenu.min.js')}}"></script>
         <script src="{{asset('backoffice/assets/libs/simplebar/simplebar.min.js')}}"></script>
         <script src="{{asset('backoffice/assets/libs/node-waves/waves.min.js')}}"></script>
