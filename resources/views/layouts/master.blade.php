@@ -89,7 +89,7 @@
             <div class="container">
                 <!-- navigation bar -->
                 <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ route('home')}}">
                     <img src="{{asset('landing/images/logo.png')}}" alt="image" >
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -138,7 +138,7 @@
             <div class="container">
                 <!-- navigation bar -->
                 <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ route('home')}}">
                     <img src="{{asset('landing/images/logo_white.png')}}" alt="image" >
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
