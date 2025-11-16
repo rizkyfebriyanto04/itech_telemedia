@@ -27,7 +27,7 @@
                 <div class="col-12 mb-3">
                     <h3 align="center"></h3>
                 </div>
-                <form action="{{ route('artikel.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('artikel.tambahdata') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="col-10">

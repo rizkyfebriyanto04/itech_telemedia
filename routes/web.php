@@ -29,7 +29,7 @@ Route::middleware('backoffice')->group(function () {
     // Berita
     Route::get('/artikel', [SettingController::class, 'artikel'])->name('artikel');
     Route::get('/add-artikel', [SettingController::class, 'tambah_artikel'])->name('add.artikel');
-    Route::post('/store', [SettingController::class, 'store_artikel'])->name('artikel.store');
+    Route::post('/store-tambah', [SettingController::class, 'store_artikel'])->name('artikel.tambahdata');
     Route::get('/artikel/{id}/edit', [SettingController::class, 'artikel_edit'])->name('artikel.edit');
     Route::put('/artikel/{id}', [SettingController::class, 'artikel_update'])->name('artikel.update');
     Route::delete('/artikel/{id}', [SettingController::class, 'artikel_delete'])->name('artikel.delete');
