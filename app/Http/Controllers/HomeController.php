@@ -11,8 +11,8 @@ class HomeController extends Controller
     public function index(){
 
         $data = Setting::all();
-        $berita = Artikel::orderBy('created_at', 'desc')->get();
-        $testimoni = Testimoni::orderBy('created_at', 'desc')->get();
+        $berita = Artikel::orderBy('created_at', 'desc')->limit(3)->get();
+        $testimoni = Testimoni::orderBy('created_at', 'desc')->limit(9)->get();
 
         return view('front.index',compact('data','berita','testimoni'));
     }
