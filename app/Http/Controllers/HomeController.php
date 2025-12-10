@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index(){
 
         $data = Setting::all();
-        $berita = Artikel::orderBy('created_at', 'desc')->limit(3)->get();
+        $berita = Artikel::orderBy('created_at', 'desc')->limit(6)->get();
         $testimoni = Testimoni::orderBy('created_at', 'desc')->limit(9)->get();
 
         return view('front.index',compact('data','berita','testimoni'));
@@ -75,7 +75,7 @@ class HomeController extends Controller
 
         $artikel = Artikel::where('slug', $slug)->firstOrFail();
 
-        $current_artikel = Artikel::orderBy('created_at', 'desc')->get();
+        $current_artikel = Artikel::orderBy('created_at', 'desc')->limit(6)->get();
 
         return view('front.blog_details', compact('artikel','data','current_artikel'));
     }
