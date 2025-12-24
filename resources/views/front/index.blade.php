@@ -86,6 +86,11 @@
                     <img src="{{asset('landing/images/screen-2.png')}}" alt="image" >
                   </div>
                 </div>
+                <div class="item">
+                  <div class="slider_img">
+                    <img src="{{asset('landing/images/screen-3.png')}}" alt="image" >
+                  </div>
+                </div>
               </div>
               <div class="slider_frame">
                 <img src="{{asset('landing/images/mobile_frame_svg.svg')}}" alt="image" >

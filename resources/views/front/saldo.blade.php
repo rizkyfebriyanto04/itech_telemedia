@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Tentang Kami')
+@section('title', 'Isi Saldo')
 
 @section('content')
 
