@@ -31,6 +31,13 @@ class HomeController extends Controller
         return view('front.saldo',compact('data'));;
     }
 
+    public function privacypolicy(){
+
+        $data = Setting::all();
+
+        return view('front.privacypolicy',compact('data'));
+    }
+
     public function getURL()
     {
         $data = Setting::all();

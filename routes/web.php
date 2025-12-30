@@ -11,6 +11,7 @@ Route::middleware('recaptcha.front')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/saldo', [HomeController::class, 'saldo'])->name('saldo');
+    Route::get('/privacy-policy', [HomeController::class, 'privacypolicy'])->name('privacy');
     Route::get('/get-url', [HomeController::class, 'getURL'])->name('get-url');
     Route::get('/blog/{slug}', [HomeController::class, 'GetDetailArtikel'])->name('get-detail-blog');
 });

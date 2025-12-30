@@ -252,6 +252,7 @@
                             <li><a href="{{ route('home') }}#how_it_work">Cara Daftar</a></li>
                             <li><a href="{{ route('saldo')}}">Isi Saldo</a></li>
                             <li><a href="{{ $dataWebReport }}" target="_blank">Web Report</a></li>
+                            <li><a href="{{ route('privacy')}}">Privacy Policy</a></li>
                           </ul>
                       </div>
                   </div>
