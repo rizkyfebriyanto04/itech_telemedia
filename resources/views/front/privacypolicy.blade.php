@@ -142,7 +142,7 @@
                 <b>Kontak</b><br>
                 Jika Anda memiliki pertanyaan, silakan hubungi:<br>
                 i-tech telemedia<br>
-                Email: itechtelemedia@gmail.com
+                Email: admin@itechtelemedia.co.id
                 </p>
 
             </div>
