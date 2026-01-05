@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Privacy Policy')
+@section('title', 'Hapus Akun')
 
 @section('content')
 
