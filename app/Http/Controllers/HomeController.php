@@ -38,6 +38,13 @@ class HomeController extends Controller
         return view('front.privacypolicy',compact('data'));
     }
 
+    public function hapusakun(){
+
+        $data = Setting::all();
+
+        return view('front.hapusakun',compact('data'));
+    }
+
     public function getURL()
     {
         $data = Setting::all();

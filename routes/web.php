@@ -12,6 +12,7 @@ Route::middleware('recaptcha.front')->group(function () {
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/saldo', [HomeController::class, 'saldo'])->name('saldo');
     Route::get('/privacy-policy', [HomeController::class, 'privacypolicy'])->name('privacy');
+    Route::get('/hapus-akun', [HomeController::class, 'hapusakun'])->name('hapusakun');
     Route::get('/get-url', [HomeController::class, 'getURL'])->name('get-url');
     Route::get('/blog/{slug}', [HomeController::class, 'GetDetailArtikel'])->name('get-detail-blog');
 });

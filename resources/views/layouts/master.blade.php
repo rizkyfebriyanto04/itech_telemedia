@@ -253,6 +253,7 @@
                             <li><a href="{{ route('saldo')}}">Isi Saldo</a></li>
                             <li><a href="{{ $dataWebReport }}" target="_blank">Web Report</a></li>
                             <li><a href="{{ route('privacy')}}">Privacy Policy</a></li>
+                            <li><a href="{{ route('hapusakun')}}">Hapus Akun</a></li>
                           </ul>
                       </div>
                   </div>
