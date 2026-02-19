@@ -37,6 +37,55 @@
 }
 </style> --}}
 
+<style>
+    .story_box {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.story_box:hover {
+    transform: translateY(-5px);
+}
+
+.story_img {
+    width: 100%;
+    height: 220px; /* samakan tinggi gambar */
+    overflow: hidden;
+}
+
+.story_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* penting supaya rata */
+}
+
+.story_text {
+    padding: 20px;
+    text-align: center;
+}
+
+.story_text h3 {
+    font-size: 18px;
+    font-weight: 600;
+    min-height: 50px; /* samakan tinggi title */
+}
+
+.story_text p {
+    font-size: 14px;
+    color: #333;
+}
+
+.story_text a {
+    color: red;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+</style>
+
 </head>
 
 <body>

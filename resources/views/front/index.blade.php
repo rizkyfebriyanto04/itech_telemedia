@@ -588,21 +588,29 @@
           <div class="row">
           	<!-- story -->
             @foreach ($berita as $item)
-                <div class="col-md-4">
-                    <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
-                        <div class="story_img">
-                        <img src="{{ asset('berita/' . $item->image) }}" alt="image" width="50%">
-                        </div>
-                        <div class="story_text">
-                            <h3>{{ $item->title }}</h3>
-                            <p style="color: black">
-                                {!! Str::words(strip_tags($item->content), 10, '...') !!}
-                            </p>
-                            <a href="{{ route('get-detail-blog', $item->slug) }}">READ MORE</a>
-                        </div>
+            <div class="col-md-4 mb-4">
+                <div class="story_box h-100 d-flex flex-column" data-aos="fade-up" data-aos-duration="1500">
+
+                    <div class="story_img">
+                        <img src="{{ asset('berita/' . $item->image) }}" alt="image">
                     </div>
+
+                    <div class="story_text d-flex flex-column flex-grow-1">
+                        <h3>{{ $item->title }}</h3>
+
+                        <p class="flex-grow-1">
+                            {!! Str::words(strip_tags($item->content), 15, '...') !!}
+                        </p>
+
+                        <a href="{{ route('get-detail-blog', $item->slug) }}" class="mt-auto">
+                            READ MORE
+                        </a>
+                    </div>
+
                 </div>
+            </div>
             @endforeach
+
 
             <!-- story -->
             {{-- <div class="col-md-4">
